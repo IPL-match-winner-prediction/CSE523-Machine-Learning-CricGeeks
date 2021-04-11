@@ -90,7 +90,7 @@ def predict(itr, l_rate, thetas, x_test, y_test):
         print("\n")
 
 # loading dataset
-dataFrame = pd.read_csv("dataset_files/encoded_dataset.csv")  # dataset
+dataFrame = pd.read_csv("Dataset/encoded_dataset.csv")  # dataset
 
 # mapping
 dataFrame.loc[dataFrame["teampoint_diff"] < 0, "teampoint_diff"] = 0
