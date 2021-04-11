@@ -14,8 +14,8 @@ def sigmoid_func(X, theta):
 
 # gradient descent function: provides optimization in Logistic Regression by minimizing cost function
 # Params: X - training data with feature vars. , y: training data with target var & h: val of sigmoid func. 
-def gradient_descent(X, h, y):
-    return np.dot(X.T, (h - y))/y.shape[0]
+def mle(X, y, y1):
+    return np.dot(X.T, (y - y1))
 
 # loss func: overall loss b/w actual val & predicted val
 def loss(pred_y1, y):
@@ -24,7 +24,7 @@ def loss(pred_y1, y):
 # update theta function: update theta to best suitable theta
 # Params: theta: weight, alpha: learning rate & gradient: val of gradient descent func.
 def update_theta(theta, alpha, gradient):
-    return theta - alpha*gradient
+    return theta + alpha*gradient
 
 # train the model
 def train(itr, l_rate, theta, x_train, y_train):
@@ -35,7 +35,7 @@ def train(itr, l_rate, theta, x_train, y_train):
         for i in range(itr):
             y1 = sigmoid_func(x_train, theta)
             costs.append(loss(y1, y_train))
-            gradient = gradient_descent(x_train, y1, y_train)
+            gradient = mle(x_train, y_train, y1)
             theta = update_theta(theta, rate, gradient)
 
         optimized_thetas.append(theta)
@@ -52,6 +52,7 @@ def train(itr, l_rate, theta, x_train, y_train):
         # ax.set(xlabel='Iterations', ylabel='Iterations', zlabel='Loss')
         # ax.plot3D(x, y, z, 'green')
         # ax.set_title('Iterations v/s Loss')
+        # ax.legend(loc='upper left')
         # plt.show()
 
         # ---------- 2D plot----------------
@@ -107,7 +108,7 @@ X_features = df[feature_vars]
 y_target = df[target_var]
 
 learning_rate = [0.001, 0.01, 0.1] #, 0.5, 1] #0.0001, 0.001, 0.01, 
-iterations = 5000
+iterations = 10000
 
 intercept = np.ones((X_features.shape[0], 1))
 X_features = np.concatenate((intercept, X_features), axis=1)
