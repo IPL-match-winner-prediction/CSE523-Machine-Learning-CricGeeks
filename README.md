@@ -4,7 +4,7 @@ A Dataset of all matches has been collected from kaggle webisite.The player poin
 
 ## Built With
 
-* [Jupyter Notebook](https://jupyter.org/) - For Data Pre Processing and Web Scraping
+* [Jupyter Notebook](https://jupyter.org/) - For Data Pre-Processing and Web Scraping
 * [Python](https://www.python.org/) - Model Implementation
 
 
