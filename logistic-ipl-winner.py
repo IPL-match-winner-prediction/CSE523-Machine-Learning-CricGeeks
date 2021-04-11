@@ -75,7 +75,7 @@ target_var = 'team1_win'
 X_features = df[feature_vars]
 y_target = df[target_var]
 
-learning_rate = [0.1, 0.5, 1] #0.0001, 0.001, 0.01, 
+learning_rate = [0.001, 0.01, 0.1, 0.5, 1] #0.0001, 0.001, 0.01, 
 iterations = 5000
 
 intercept = np.ones((X_features.shape[0], 1))
