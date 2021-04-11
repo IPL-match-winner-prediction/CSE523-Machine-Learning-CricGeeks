@@ -12,8 +12,8 @@ def sigmoid_func(X, theta):
     z = np.dot(X, theta)
     return 1 / (1 + np.exp(-z))
 
-# gradient descent function: provides optimization in Logistic Regression by minimizing cost function
-# Params: X - training data with feature vars. , y: training data with target var & h: val of sigmoid func. 
+# MLE function: provides optimization in Logistic Regression by maximizing log likelihood
+# Params: X - training data with feature vars. , y: training data with target var & y1: val of sigmoid func. 
 def mle(X, y, y1):
     return np.dot(X.T, (y - y1))
 
@@ -22,7 +22,7 @@ def loss(pred_y1, y):
     return (-y * np.log(pred_y1) - (1 - y) * np.log(1 - pred_y1)).mean()
 
 # update theta function: update theta to best suitable theta
-# Params: theta: weight, alpha: learning rate & gradient: val of gradient descent func.
+# Params: theta: weight, alpha: learning rate & gradient: val of MLE func.
 def update_theta(theta, alpha, gradient):
     return theta + alpha*gradient
 
